@@ -1,103 +1,107 @@
-import Image from "next/image";
+'use client'
+
+import Image from 'next/image'
+import { useState } from 'react'
+import { Image as ImageIcon, Video, Zap, Sparkles, FolderOpen } from 'lucide-react'
+import Navbar from '@/components/Navbar' // New import
+// Remove ThemeToggle import as it's now in Navbar
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [activeTab, setActiveTab] = useState('generate')
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  const tabs = [
+    { key: 'generate', label: 'Generate images with custom', icon: ImageIcon },
+    { key: 'video', label: 'Generate videos with Flux', icon: Video },
+    { key: 'realtime', label: 'Realtime rendering', icon: Zap },
+    { key: 'enhance', label: 'Enhance images up to 2K', icon: Sparkles },
+    { key: 'show-all', label: 'Show all', icon: FolderOpen },
+  ]
+
+  return (
+    <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content - Rest remains the same */}
+      <div className="container mx-auto px-6 py-8">
+        {/* Hero Section with Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* WAN 2.2 Card */}
+          <div className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/wan.png"
+              alt="WAN 2.2 Image Generation"
+              width={600}
+              height={400}
+              className="w-full h-64 object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <h2 className="text-3xl font-bold text-white mb-2">WAN 2.2</h2>
+              <p className="text-white/90 mb-4">WAN 2.2 Image generation based on new generation WAN 2.2 models. Exceptional prompt adherence and ultra-realistic image generation.</p>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold">
+                Try WAN 2.2
+              </button>
+            </div>
+          </div>
+
+          {/* FLUX.1 Card */}
+          <div className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/cor.png"
+              alt="FLUX.1 Open Source"
+              width={600}
+              height={400}
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <h2 className="text-3xl font-bold text-white mb-2">FLUX.1<br />Open Source</h2>
+              <p className="text-white/90 mb-4">FLUX.1 [schnell] weights to run FLUX.1 model weights. Download model weights, read the tech report, or</p>
+              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md font-semibold">
+                Download model weights
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Generate Tabs Section */}
+        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-1 mb-12">
+          <div className="flex space-x-1 overflow-x-auto">
+            {tabs.map((tab) => {
+              const Icon = tab.icon
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`flex items-center space-x-2 px-4 py-3 rounded-md whitespace-nowrap font-medium transition-colors ${
+                    activeTab === tab.key
+                      ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{tab.label}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Gallery Section Placeholder */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg flex items-center justify-center">
+              Gallery Item {i + 1}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 dark:border-gray-700 mt-12 pt-6 text-center text-gray-500 dark:text-gray-400">
+        <p>Curated by <span className="font-semibold">Mobbin</span></p>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
