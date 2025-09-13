@@ -29,7 +29,7 @@ export default function Header() {
           alt="Krea Logo"
           width={25}
           height={25}
-          className="rounded"
+          className="rounded dark:bg-gray-600 "
         />
         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
           {username}
@@ -37,7 +37,7 @@ export default function Header() {
       </div>
 
       {/* Middle: Nav Icons */}
-      <div className="hidden md:flex items-center space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg px-2 py-1">
+      <div className="hidden md:flex items-center space-x-1 bg-gray-200 dark:bg-gray-600 rounded-lg px-2 py-1">
         {[
           { Icon: Home, label: 'Home' },
           { Icon: ImageIcon, label: 'Images' },
@@ -59,12 +59,12 @@ export default function Header() {
 
       {/* Right: Gallery, Support, Notifications, Theme, Profile */}
       <div className="flex items-center space-x-1.5">
-        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-200 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
           <Album className="w-4 h-4" />
           <span className="hidden sm:inline">Gallery</span>
         </button>
 
-        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm bg-gray-200 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
           <HelpCircle className="w-5 h-5" />
           <span className="hidden sm:inline">Support</span>
         </button>
