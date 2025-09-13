@@ -59,7 +59,7 @@ export default function Header() {
 
       {/* Right: Gallery, Support, Notifications, Theme, Profile */}
       <div className="flex items-center space-x-1.5">
-        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-200 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
+        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-300 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
           <Album className="w-4 h-4" />
           <span className="hidden sm:inline">Gallery</span>
         </button>
