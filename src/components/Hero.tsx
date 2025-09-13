@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-
+import { useNavigation } from '../../NavigationContext'
 const leftSlides = [
   {
     id: 1,
@@ -60,6 +60,8 @@ const rightSlides = [
 ]
 
 export default function HeroCarousel() {
+  const {navigate}=useNavigation()
+  
   const [leftCurrent, setLeftCurrent] = useState(0)
   const [rightCurrent, setRightCurrent] = useState(0)
 
@@ -108,7 +110,9 @@ export default function HeroCarousel() {
               
               {/* CTA Button */}
               <div>
-                <button className={`${leftSlides[leftCurrent].buttonStyle} text-white px-5 py-2 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-sm`}>
+                <button
+                onClick={()=>navigate("/")}
+                className={`${leftSlides[leftCurrent].buttonStyle} text-white px-5 py-2 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-sm`}>
                   {leftSlides[leftCurrent].button}
                 </button>
               </div>
@@ -172,7 +176,9 @@ export default function HeroCarousel() {
 
         {/* CTA Button */}
         <div>
-          <button className={`${rightSlides[rightCurrent].buttonStyle} text-white px-5 py-2 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-sm`}>
+          <button
+          
+          className={`${rightSlides[rightCurrent].buttonStyle} text-white px-5 py-2 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-sm`}>
             {rightSlides[rightCurrent].button}
           </button>
         </div>

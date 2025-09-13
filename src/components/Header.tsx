@@ -16,8 +16,10 @@ import {
 import ThemeToggle from './ThemeToggle'
 import { useState } from 'react'
 import Image from 'next/image'
+import { useNavigation } from '../../NavigationContext'
 
 export default function Header() {
+  const {navigate}= useNavigation()
   const [username] = useState('benevolentnimblebat') // Replace with real user data later
 
   return (
@@ -51,6 +53,7 @@ export default function Header() {
           <button
             key={idx}
             aria-label={label}
+            onClick={()=>navigate('/')}
             className="p-2 text-gray-600 dark:text-gray-300 
              hover:text-blue-600 dark:hover:text-blue-400  transition-colors"
           >
@@ -61,20 +64,25 @@ export default function Header() {
 
       {/* Right: Gallery, Support, Notifications, Theme, Profile */}
       <div className="flex items-center space-x-1.5">
-        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-200 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
+        <button 
+        onClick={()=>navigate("/")}
+        className="flex items-center sm:px-1 space-x-1 px-2 py-1  bg-gray-200 rounded-md text-sm  dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-800 transition-colors">
           <Album className="w-4 h-4" />
           <span className="hidden sm:inline">Gallery</span>
         </button>
 
-        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 
-  hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-          <HelpCircle className="w-5 h-5" />
+        <button 
+
+        onClick={()=>navigate("/")}
+        className="flex items-center sm:px-1 space-x-1 px-2 py-1 rounded-md text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-800 transition-colors">
+          <HelpCircle className="w-4 h-4" />
           <span className="hidden sm:inline">Support</span>
         </button>
 
         {/* Notification Bell with red dot */}
         <div className="relative">
           <button
+          onClick={()=>navigate("/")}
             aria-label="Notifications"
             className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >

@@ -1,7 +1,8 @@
 'use client'
-import { useState } from 'react'
+
 import { ImageIcon, Video, Zap, Sparkles, FolderOpen, Palette, Brain, MessageSquare } from 'lucide-react'
 
+import { useNavigation } from '../../NavigationContext'
 const cards = [
   { 
     key: 'generate', 
@@ -56,13 +57,16 @@ const cards = [
   }
 ]
 
+
 export default function Generate() {
+  const {navigate}=useNavigation()
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Generate</h1>
-        <button className="text-blue-600 hover:text-blue-700 text-sm">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-800">Generate</h1>
+        <button onClick={()=>navigate("/")}
+        className="text-blue-600 hover:text-blue-800 text-sm">
           ← Show all
         </button>
       </div>
@@ -91,7 +95,9 @@ export default function Generate() {
                       New
                     </span>
                   )}
-                  <button className="text-blue-600 hover:text-blue-800 text-sm font-medium bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button 
+                  onClick={()=>navigate("/")}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
                     Open
                   </button>
                 </div>
