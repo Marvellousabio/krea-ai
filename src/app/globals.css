@@ -4,10 +4,10 @@
 
 /* Custom global styles */
 html {
-  @apply bg-white text-black;
+  @apply bg-gray-50 text-gray-900; 
 }
 
 html.dark {
-  @apply bg-gray-900 text-white;
+  @apply bg-gray-950 text-gray-200;
 }
 

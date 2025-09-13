@@ -31,13 +31,14 @@ export default function Header() {
           height={25}
           className="rounded dark:bg-gray-600 "
         />
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-medium ">
+          {/* i use this before text-gray-800 dark:text-gray-200 */}
           {username}
         </span>
       </div>
 
       {/* Middle: Nav Icons */}
-      <div className="hidden md:flex items-center space-x-1 bg-gray-200 dark:bg-gray-600 rounded-lg px-2 py-1">
+      <div className="hidden md:flex items-center space-x-1 bg-gray-300 dark:bg-gray-700  rounded-lg px-2 py-1">
         {[
           { Icon: Home, label: 'Home' },
           { Icon: ImageIcon, label: 'Images' },
@@ -50,7 +51,8 @@ export default function Header() {
           <button
             key={idx}
             aria-label={label}
-            className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="p-2 text-gray-600 dark:text-gray-300 
+             hover:text-blue-600 dark:hover:text-blue-400  transition-colors"
           >
             <Icon className="w-5 h-5" />
           </button>
@@ -59,12 +61,14 @@ export default function Header() {
 
       {/* Right: Gallery, Support, Notifications, Theme, Profile */}
       <div className="flex items-center space-x-1.5">
-        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-200 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
+        <button className="flex items-center space-x-1 px-2 py-1  bg-gray-200 dark:bg-gray-700 rounded-md text-sm text-gray-700 dark:text-gray-200 
+  hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
           <Album className="w-4 h-4" />
           <span className="hidden sm:inline">Gallery</span>
         </button>
 
-        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm bg-gray-200 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors">
+        <button className="flex items-center space-x-1 px-2 py-1 rounded-md text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 
+  hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
           <HelpCircle className="w-5 h-5" />
           <span className="hidden sm:inline">Support</span>
         </button>
