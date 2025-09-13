@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Krea.ai",
-  description: "AI-Powered Creativity Suite",
+  description: "Pixel-perfect UI clone with Next.js + Tailwind + Dark Mode",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false }>
           {children}
         </ThemeProvider>
       </body>

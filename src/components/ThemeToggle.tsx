@@ -1,27 +1,37 @@
-'use client'
+"use client";
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return <div className="w-8 h-8 bg-gray-300 dark:bg-gray-600 rounded-full" /> // Skeleton
+    // Prevents hydration mismatch
+    return (
+      <div className="w-9 h-9 bg-gray-200 dark:bg-gray-800 rounded-full animate-pulse" />
+    );
   }
+
+  const isDark = theme === "dark";
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
       aria-label="Toggle dark mode"
     >
-      {theme === 'dark' ? '☀️' : '🌙'}
+      {isDark ? (
+        <Sun className="w-5 h-5 text-yellow-500" />
+      ) : (
+        <Moon className="w-5 h-5 text-gray-700 dark:text-gray-200" />
+      )}
     </button>
-  )
+  );
 }
