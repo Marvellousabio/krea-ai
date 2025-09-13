@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start",
-    "tailwind:init": "tailwindcss init -p"
+    "start": "next start"
   },
   "dependencies": {
     "lucide-react": "^0.544.0",

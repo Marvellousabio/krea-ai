@@ -8,7 +8,7 @@ import Generate from '@/components/Generate'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white">
+    <div className="min-h-screen">
       <Header />
       <main className="container mx-auto px-6 py-8 ">
         <Hero />
